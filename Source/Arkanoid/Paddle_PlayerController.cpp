@@ -27,7 +27,7 @@ void APaddle_PlayerController::SetupInputComponent()
 
     EnableInput(this);
 
-    InputCompontent -> BindAxis("MoveHorizontal", this, &APaddle_PlayerController::MoveHorizontal);
+    InputComponent -> BindAxis("MoveHorizontal", this, &APaddle_PlayerController::MoveHorizontal);
 }
 
 void APaddle_PlayerController::MoveHorizontal(float AxisValue) 
@@ -36,5 +36,7 @@ void APaddle_PlayerController::MoveHorizontal(float AxisValue)
 
     if(MyPawn){
         MyPawn -> MoveHorizontal(AxisValue);
+    } else {
+        UE_LOG(LogTemp, Error, TEXT("No Pawn"));
     }
 }
